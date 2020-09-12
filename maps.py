@@ -6,7 +6,6 @@ def write_config(config):
     with open('config.json', 'w') as file:
         json.dump(config, file)
 
-
 def get_config():
     try:
         with open('config.json', 'r') as file:
@@ -50,15 +49,23 @@ def get_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwarg
     try:
         dists = res['rows'][0]['elements']
     except (IndexError, KeyError):
+        print(res.get('error_message', "No error message"))
         raise NothingFoundError
     else:
         for i, dist in enumerate(dists):
             dest[i]['time_text'] = dist['duration']['text']
             dest[i]['time_sec'] = dist['duration']['value']
 
+def is_possible_checktime(key: str, _min = 3) -> bool:
+    res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
+    return res['credits_forecast']>_min and res['credits_query']>_min
+
+def check_time():
+    pass    
+
 a = get_near(get_config()['api_key'], get_location(), 2000)
 
 get_distance(get_config()['api_key'], get_location(), a)
 
 for i in a:
-    print(i['name'], i['time_text'], int(i['time_sec']/60,0))
+    print(i['name'], i['time_text'], int(i['time_sec']/60))
