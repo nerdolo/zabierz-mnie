@@ -2,8 +2,9 @@ import requests
 import json
 import typing as tp
 
-with open('config.json') as file:
-    API_KEY = json.load(file)['api_key']
+def write_config(config):
+    with open('config.json', 'w') as file:
+        json.dump(config, file)
 
 
 def get_config():
@@ -14,13 +15,16 @@ def get_config():
         j = None
     return j
 
+
 class NothingFoundError(Exception):
     pass
 
-def get_location():
+
+def get_location() -> tp.Tuple[float]:
     return 52.409373, 16.924296
 
-def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs):
+
+def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list:
     """ Znajduje najbliższe miejsca
     :param key: API KEY
     :type key: str
@@ -32,7 +36,29 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs):
     # Zwraca zdictowaną odpowiedź
     res = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
                        dict(key=key, radius=radius, location=", ".join((str(i) for i in location)), **kwargs)).json()
-    if not res['results']:
+    if not res.get('results', None):
         raise NothingFoundError
     else:
         return res['results']
+
+
+def get_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwargs) -> None:
+    destinations = "|".join((",".join(
+        (str(i['geometry']['location']['lat']), str(i['geometry']['location']['lng']))) for i in dest))
+    res = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json',
+                       dict(key=key, departure_time='now', origins=f"{start[0]},{start[1]}", destinations=destinations, mode='walking', **kwargs)).json()
+    try:
+        dists = res['rows'][0]['elements']
+    except (IndexError, KeyError):
+        raise NothingFoundError
+    else:
+        for i, dist in enumerate(dists):
+            dest[i]['time_text'] = dist['duration']['text']
+            dest[i]['time_sec'] = dist['duration']['value']
+
+a = get_near(get_config()['api_key'], get_location(), 2000)
+
+get_distance(get_config()['api_key'], get_location(), a)
+
+for i in a:
+    print(i['name'], i['time_text'], int(i['time_sec']/60,0))

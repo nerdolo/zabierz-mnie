@@ -12,8 +12,10 @@ wspol = (float(st.number_input("Podaj szerokość geograficzną: ")), st.number_
 
 is_outside = True if st.selectbox("Gdzie chcesz uciec?", ('Pod dach', 'Poza dach'))=="Poza dach" else False
 
-config = maps.get_config()
-
+# Sidebar
 st.sidebar.title("Konfiguracja")
-
-st.sidebar.checkbox("")
+st.sidebar.title("Miejsca")
+if not st.sidebar.checkbox("Zaznacz, aby się pokazało"):
+    for i in config['places'].keys():
+        config['places'][i] = st.sidebar.slider(i, min_value=0, max_value=2, value=config['places'][i])
+    
