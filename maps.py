@@ -61,9 +61,16 @@ def get_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwarg
             dest[i]['time_text'] = dist['duration']['text']
             dest[i]['time_sec'] = dist['duration']['value']
 
+def is_possible_checktime(key: str, _min = 3) -> bool:
+    res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
+    return res['credits_forecast']>_min and res['credits_query']>_min
+
+def check_time():
+    pass
+
 a = get_near(get_config()['api_key'], get_location(), 2000)
+
 get_distance(get_config()['api_key'], get_location(), a)
-write_result(a)
 
 for i in a:
     print(i['name'], i['time_text'], int(i['time_sec']/60))
