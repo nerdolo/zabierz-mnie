@@ -31,7 +31,7 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs):
     """
     # Zwraca zdictowaną odpowiedź
     res = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-                       key=key, radius=radius, location=", ".join((str(i) for i in location), **kwargs)).json()
+                       dict(key=key, radius=radius, location=", ".join((str(i) for i in location)), **kwargs)).json()
     if not res['results']:
         raise NothingFoundError
     else:
