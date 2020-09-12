@@ -1,10 +1,19 @@
 import streamlit as st
+import numpy as np
+from PIL import Image
+import maps
 
+image = Image.open('logo.jpg')
+st.image(image, width=600)
 st.title("Zabierz mnie stąd")
-st.text('test')
 
-st.text_input("Podaj szerokość geograficzną: ")
+wspol = (float(st.number_input("Podaj szerokość geograficzną: ")), st.number_input("Podaj wysokość geograficzną: "))
+# st.map(data=, zoom=13)
 
-st.text_input("Podaj wysokość geograficzną: ")
+is_outside = True if st.selectbox("Gdzie chcesz uciec?", ('Pod dach', 'Poza dach'))=="Poza dach" else False
 
-st.ma
+config = maps.get_config()
+
+st.sidebar.title("Konfiguracja")
+
+st.sidebar.checkbox("")
