@@ -20,7 +20,7 @@ class NothingFoundError(Exception):
 def get_location():
     return 52.409373, 16.924296
 
-def get_near(key: str, location: tp.Tuple[float], radius: int, types: tp.Tuple[str], **kwargs):
+def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs):
     """ Znajduje najbliższe miejsca
     :param key: API KEY
     :type key: str
