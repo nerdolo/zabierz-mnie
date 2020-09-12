@@ -6,6 +6,10 @@ def write_config(config):
     with open('config.json', 'w') as file:
         json.dump(config, file)
 
+def write_result(result):
+    with open('result.json', 'w') as file:
+        json.dump(result, file)
+
 
 def get_config():
     try:
@@ -50,6 +54,7 @@ def get_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwarg
     try:
         dists = res['rows'][0]['elements']
     except (IndexError, KeyError):
+        print(res.get('error_message', "No error message"))
         raise NothingFoundError
     else:
         for i, dist in enumerate(dists):
@@ -57,8 +62,8 @@ def get_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwarg
             dest[i]['time_sec'] = dist['duration']['value']
 
 a = get_near(get_config()['api_key'], get_location(), 2000)
-
 get_distance(get_config()['api_key'], get_location(), a)
+write_result(a)
 
 for i in a:
-    print(i['name'], i['time_text'], int(i['time_sec']/60,0))
+    print(i['name'], i['time_text'], int(i['time_sec']/60))
