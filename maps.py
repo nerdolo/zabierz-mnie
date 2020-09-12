@@ -6,11 +6,19 @@ with open('config.json') as file:
     API_KEY = json.load(file)['api_key']
 
 
-def NothingFoundError(Exception):
+def get_config():
+    try:
+        with open('config.json', 'r') as file:
+            j = json.load(file)
+    except FileNotFoundError as e:
+        j = None
+    return j
+
+class NothingFoundError(Exception):
     pass
 
 def get_location():
-    pass
+    return 52.409373, 16.924296
 
 def get_near(key: str, location: tp.Tuple[float], radius: int, types: tp.Tuple[str], **kwargs):
     """ Znajduje najbliższe miejsca
