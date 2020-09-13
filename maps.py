@@ -25,7 +25,6 @@ class NothingFoundError(Exception):
 def get_location() -> tp.Tuple[float]:
     return 52.409373, 16.924296
 
-
 def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list:
     """ Znajduje najbliższe miejsca
     :param key: API KEY
@@ -43,6 +42,24 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list
     else:
         return res['results']
 
+def near_by_types(key: str, location: tp.Tuple[float], radius: int, types: tp.List[str], **kwargs) -> tp.List[dict]:
+    """Zwraca miejsca wymienionych typu w okolicy
+
+    :param key: API KEY Google Maps
+    :type key: str
+    :param location: Współrzędne geograficzne (latitude, longitude)
+    :type location: tp.Tuple[float]
+    :param radius: Odległość w metrach
+    :type radius: int
+    :param types: Typy miejsc według Google
+    :type types: tp.List[str]
+    :return: Lokalizacje
+    :rtype: tp.List[dict]
+    """
+    all_places = list
+    for i in types:
+        all_places.extend(get_near(key, location, radius, type=i))
+    return all_places
 
 def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwargs) -> None:
     """ Modyfikuje tablicę dest dodając do wartości w niej informacje o dystancie w sekundach i dystansie w formie tekstowej
