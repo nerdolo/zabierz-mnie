@@ -2,6 +2,9 @@ import requests
 import json
 import typing as tp
 
+walking_time=20
+minimum_rating=3.0
+
 def write_config(config):
     with open('config.json', 'w') as file:
         json.dump(config, file)
@@ -68,9 +71,39 @@ def is_possible_checktime(key: str, _min = 3) -> bool:
 def check_time():
     pass
 
-a = get_near(get_config()['api_key'], get_location(), 2000)
+def result_sorting(results, walk_time, min_rate):
+    i=0
+    while i < len(results):
+        try:
+            if results[i]['business_status'] != 'OPERATIONAL':
+                results.pop(i)
+                continue
+        except: print("Couldn't find business status for", i+1)
 
-get_distance(get_config()['api_key'], get_location(), a)
+        try:
+            if results[i]['opening_hours']['open_now'] == False:
+                results.pop(i)
+                continue
+        except: print("Couldn't find opening hours", i+1)
+
+        try:
+            if results[i]['rating'] < min_rate:
+                results.pop(i)
+                continue
+        except: print("Couldn't find rating", i+1)
+
+        if results[i]['time_sec']/60 > walk_time:
+            results.pop(i)
+            continue
+        i+=1
+
+
+
+a = get_near(get_config()['maps_api_key'], get_location(), 2000)
+get_distance(get_config()['maps_api_key'], get_location(), a)
+write_result(a)
+result_sorting(a,walking_time,minimum_rating)
+print(a)
 
 for i in a:
     print(i['name'], i['time_text'], int(i['time_sec']/60))
