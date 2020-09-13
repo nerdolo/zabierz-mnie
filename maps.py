@@ -188,24 +188,28 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
         i+=1
 
 
-def sorting_by(results: tp.List[dict], param: string, results_amount=0: int, rev = False: bool):
-"""Sortowanie po parametrze
+def sorting_by(results, param, results_amount, rev = False):
+    """Sortowanie po parametrze
 
-:param results: Wyniki wyszukiwania miejsc
-:type results: tp.List[dict]
-:param param: Parametr po którym sortujemy wyniki
-:type param: string
-:param results_amount: Ile najlepszych wyników sortowania zwracać, domyślnie wszystkie
-:type results_amount: int
-:param rev: Czy odwrócić kierunek sortowania
-:type rev: bool
-"""
-# domyślnie zwracaj wszystkie
-    if results_amount == 0: results_amount=len(results)
+    :param results: Wyniki wyszukiwania miejsc
+    :type results: tp.List[dict]
+    :param param: Parametr po którym sortujemy wyniki
+    :type param: string
+    :param results_amount: Ile najlepszych wyników sortowania zwracać
+    :type results_amount: int
+    :param rev: Czy odwrócić kierunek sortowania
+    :type rev: bool
+    """
 # sortuj po parametrze, ewentualnie odwróć
-    results.sort(reverse = rev, key = lambda x: x[param])
+    results.sort(reverse = rev, key = lambda x: x.get('param', 0))
 #zwróć odpowiednią ilość najlepszych wyników
-    results=results[:results_amount]
+    del results[results_amount:]
+
+
+def get_best(results: tp.List[dict], walk_time: int, min_rate: int):
+    filter_(results, walk_time, min_rate)
+    sorting_by(results, 'time_sec', 10)
+    sorting_by(results, 'rating', 3, True)
 
 
 if __name__ == "__main__":
@@ -217,7 +221,6 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     #test
     ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
-    filter_(ans,20,3.0)
-    sorting_by(ans,'time_sec')
+    get_best(ans,20,3.0)
     for a in ans:
-        print(a['name'], int(a['time_sec']/60))
+        print(a['name'],a['time_text'])
