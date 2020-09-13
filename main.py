@@ -7,6 +7,7 @@ import streamlit as st
 import requests
 from PIL import Image
 from io import BytesIO
+import datetime
 
 import maps
 
@@ -39,8 +40,8 @@ def near_by_types_cached(key: str, location: tp.Tuple[float], radius: int, types
 
 cfg = maps.get_config()
 
-image = Image.open('logo.jpg')
-st.image(image, width=600)
+image = Image.open('logo.png')
+st.image(image, width=150)
 st.title("Zabierz mnie stąd")
 
 wspol = (float(st.number_input("Podaj szerokość geograficzną: ", value=maps.get_location()[
@@ -57,10 +58,12 @@ metry = st.sidebar.number_input(
 
 st.header('Miejsca')
 with st.spinner("Weź długi oddech, policz do trzech, następnie wypuść powietrze ponownie licząc do trzech..."):
-    ans = deepcopy(near_by_types_cached(
-        cfg['maps_api_key'], wspol, metry, category_group))
-    maps.filter_(ans, radius, min_stars)
-    # maps.sorting_by(ans, 'time_sec')
+    ans = deepcopy(maps.near_by_types(cfg['maps_api_key'], wspol, metry, category_group))
+    maps.get_best(ans,radius,min_stars)
+    today = datetime.date.today().strftime('%A')
+    hour = datetime.datetime.now().hour
+    maps.check_popularity(cfg['private_api_key'], ans, today, hour)
+    maps.sorting_by(ans, 'popularity', 3, True)
 
     lat_long = {
         'lat': [i['geometry']['location']['lat'] for i in ans],
