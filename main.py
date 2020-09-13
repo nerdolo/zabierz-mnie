@@ -32,9 +32,10 @@ def near_by_types_cached(key: str, location: tp.Tuple[float], radius: int, types
     return maps.near_by_types(key, location, radius, types, **kwargs)
 
 st.title('Miejsca')
-with st.spinner():
+with st.spinner("Weź długi oddech, policz do trzech, następnie wypuść powietrze ponownie licząc do trzech..."):
     ans = deepcopy(near_by_types_cached(cfg['maps_api_key'], wspol, metry, category_group))
     maps.filter_(ans, radius, min_stars) 
+    maps.sorting_by(ans,'time_sec')
 
     lat_long = {
         'lat':[i['geometry']['location']['lat'] for i in ans],
