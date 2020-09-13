@@ -1,0 +1,991 @@
+[
+    {
+        "geometry": {
+            "location": {
+                "lat": 52.406374,
+                "lng": 16.9251681
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.509141,
+                    "lng": 17.0716593
+                },
+                "southwest": {
+                    "lat": 52.29191609999999,
+                    "lng": 16.7316724
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+        "name": "Poznań",
+        "photos": [
+            {
+                "height": 1365,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100594058366317458316\">Dieter Goebel</a>"
+                ],
+                "photo_reference": "CkQ0AAAAGdRccPV2ThV2os90wGLrn5XULPeq-K-ernklHLT13-WKxE5vnbl8iGEsVpnFuzWUsZkEccgI4TD_3fnlR4EjxRIQBWLvzzYTO8LNL_cIlJMLdxoUZ8lqA8IO8n7ya5gddpA48nS4sUM",
+                "width": 2048
+            }
+        ],
+        "place_id": "ChIJtwrh7NJEBEcR0b80A5gx6qQ",
+        "reference": "ChIJtwrh7NJEBEcR0b80A5gx6qQ",
+        "scope": "GOOGLE",
+        "types": [
+            "locality",
+            "political"
+        ],
+        "vicinity": "Poznań",
+        "time_text": "5 mins",
+        "time_sec": 283
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4067601,
+                "lng": 16.9108613
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4080408802915,
+                    "lng": 16.9122149302915
+                },
+                "southwest": {
+                    "lat": 52.4053429197085,
+                    "lng": 16.9095169697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Sheraton Poznan Hotel",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 1181,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/103692911331638628158\">Sheraton Poznan Hotel</a>"
+                ],
+                "photo_reference": "CkQ0AAAAVvHO5yeSopnu9wTL12LFNzD24CLjrKfqihfVMrZvlihhRMIuXnVNDAfYVkbsW3rc6t1JlRfVUXLupwQY27u_6hIQUXvfKbft5xPaf3estBfZlxoUVJlFWWlJ6wZsQPvJnV24E-OfoNs",
+                "width": 2100
+            }
+        ],
+        "place_id": "ChIJBSXZuTRbBEcRkL5HV6GNNKM",
+        "plus_code": {
+            "compound_code": "CW46+P8 Poznań, Poland",
+            "global_code": "9F4RCW46+P8"
+        },
+        "rating": 4.4,
+        "reference": "ChIJBSXZuTRbBEcRkL5HV6GNNKM",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1568,
+        "vicinity": "Bukowska 3/9, Poznań",
+        "time_text": "17 mins",
+        "time_sec": 1028
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4010123,
+                "lng": 16.9259296
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4023244802915,
+                    "lng": 16.92753818029151
+                },
+                "southwest": {
+                    "lat": 52.3996265197085,
+                    "lng": 16.9248402197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "IBB Andersia Hotel Poznań Centrum",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 561,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108531536039428184678\">IBB Andersia Hotel Poznań Centrum</a>"
+                ],
+                "photo_reference": "CkQzAAAAk9azDWzhhWIsKf640QTum4qHyQdZ1EqLEZBECi3A3IklJr389v7K7y9oxha4UgW3A9_8VECsj57fL4QKu0x0aRIQaUtrx2lFC2VaKq5Libg5qxoUzkyKh-vqVl9iDnE4l54qZCln35Y",
+                "width": 757
+            }
+        ],
+        "place_id": "ChIJQZCyBztbBEcR4x6q0p7kiOk",
+        "plus_code": {
+            "compound_code": "CW2G+C9 Poznań, Poland",
+            "global_code": "9F4RCW2G+C9"
+        },
+        "rating": 4.5,
+        "reference": "ChIJQZCyBztbBEcR4x6q0p7kiOk",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 2199,
+        "vicinity": "plac Andersa 3, Poznań",
+        "time_text": "13 mins",
+        "time_sec": 802
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.402277,
+                "lng": 16.922887
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4037216302915,
+                    "lng": 16.9241512302915
+                },
+                "southwest": {
+                    "lat": 52.4010236697085,
+                    "lng": 16.9214532697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Traffic Hotel",
+        "photos": [
+            {
+                "height": 3376,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101064861104639785566\">Traffic Hotel</a>"
+                ],
+                "photo_reference": "CkQ0AAAAUGtsx2odsvvDvLLxaL6gjXhIjxmm6Wm_kd-eT2zQJRL_zP-YAt4cb2zFF01yLjyjFQ6mE7NkbsXAS9aYr0eiLhIQtxhqSrID9_2Vvu41AF2HJBoUiHmE65mKY7La7P5VHrmlrLuy2mA",
+                "width": 6000
+            }
+        ],
+        "place_id": "ChIJfQ3TElZFBEcRtifj0q3Iyac",
+        "plus_code": {
+            "compound_code": "CW2F+W5 Poznań, Poland",
+            "global_code": "9F4RCW2F+W5"
+        },
+        "rating": 4.2,
+        "reference": "ChIJfQ3TElZFBEcRtifj0q3Iyac",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1308,
+        "vicinity": "Niezłomnych 1C, Poznań",
+        "time_text": "11 mins",
+        "time_sec": 654
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.40740599999999,
+                "lng": 16.9324519
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4086970802915,
+                    "lng": 16.9336880802915
+                },
+                "southwest": {
+                    "lat": 52.4059991197085,
+                    "lng": 16.9309901197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Melody Hostel",
+        "photos": [
+            {
+                "height": 850,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106840493259115673566\">Melody Hostel</a>"
+                ],
+                "photo_reference": "CkQ0AAAAbRXIjcMN3MaNL-KxRxmrSqGqR25knluNk1sd_z2P6roZBRs3P4-Z8kG5jc4_CUcffMISVFYz9lr--13Eg7uzpBIQ-xejM1SpVKQ1J_lJvyxHdxoUO-kpULSKx5rZ34-jONiGnqDbjmc",
+                "width": 1280
+            }
+        ],
+        "place_id": "ChIJFzXXsDhbBEcRjVK3gAgS7Oc",
+        "plus_code": {
+            "compound_code": "CW4J+XX Poznań, Poland",
+            "global_code": "9F4RCW4J+XX"
+        },
+        "rating": 4,
+        "reference": "ChIJFzXXsDhbBEcRjVK3gAgS7Oc",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 237,
+        "vicinity": "Kozia 16, Poznań",
+        "time_text": "8 mins",
+        "time_sec": 489
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4074173,
+                "lng": 16.9073582
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.40877308029149,
+                    "lng": 16.9086346802915
+                },
+                "southwest": {
+                    "lat": 52.4060751197085,
+                    "lng": 16.9059367197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel Gaja",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 800,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100559977606366109573\">Hotel Gaja</a>"
+                ],
+                "photo_reference": "CkQ0AAAAnE_K4qXZdTP3qkL2HjRL2o5Y008rp327-RsBhWxqjuluCBtmTxjOo-55xbWkKXvSa9o7dz1R_3zo1D8NFtIYthIQRvVbCAtLa3Gx7IpDUPBFVxoUVI9GHro_iRY9eoIyz1gvBYTbk-4",
+                "width": 1200
+            }
+        ],
+        "place_id": "ChIJn5nsRMtEBEcRUEPBRoj_Ggk",
+        "plus_code": {
+            "compound_code": "CW44+XW Poznań, Poland",
+            "global_code": "9F4RCW44+XW"
+        },
+        "rating": 4,
+        "reference": "ChIJn5nsRMtEBEcRUEPBRoj_Ggk",
+        "scope": "GOOGLE",
+        "types": [
+            "bowling_alley",
+            "night_club",
+            "lodging",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 804,
+        "vicinity": "Gajowa 12, Poznań",
+        "time_text": "21 mins",
+        "time_sec": 1246
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4094444,
+                "lng": 16.9330556
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4107782802915,
+                    "lng": 16.9343948802915
+                },
+                "southwest": {
+                    "lat": 52.4080803197085,
+                    "lng": 16.9316969197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Retro Hostel",
+        "photos": [
+            {
+                "height": 2340,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114721833373098446648\">Norbert Marcinkiewicz</a>"
+                ],
+                "photo_reference": "CkQ0AAAARViZ_ru3iyTc64yCnqY8_wYX3inWjcEU0HkmcDZYf5QOn9gJDGI_Ri8d1rx-StQz-Z4s_Lcdjhnn6kdkeasgdxIQFw4KZH4Cm--YwLv58Z0cRBoUA84Tq_arjAdRGAkyeUpw2ukqkK0",
+                "width": 4160
+            }
+        ],
+        "place_id": "ChIJMynk9ztbBEcR3jHPlYMCXFc",
+        "plus_code": {
+            "compound_code": "CW5M+Q6 Poznań, Poland",
+            "global_code": "9F4RCW5M+Q6"
+        },
+        "rating": 4.3,
+        "reference": "ChIJMynk9ztbBEcR3jHPlYMCXFc",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 530,
+        "vicinity": "Kramarska 1, Poznań",
+        "time_text": "8 mins",
+        "time_sec": 472
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.41351179999999,
+                "lng": 16.9245887
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.41463673029149,
+                    "lng": 16.9257697802915
+                },
+                "southwest": {
+                    "lat": 52.4119387697085,
+                    "lng": 16.9230718197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel Ikar",
+        "photos": [
+            {
+                "height": 500,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/102304155387552666893\">Hotel Ikar</a>"
+                ],
+                "photo_reference": "CkQ0AAAAtknFFSglU3BUzF6ehkXZ4UJ-OBnO7ILI2wsDKaoC4g_4_GovuMOi8rWWs4rcHAgTPJSyMaCBKg7MIwedI25p6hIQmnJWVtAI6fJmVvnDzEDTIxoU5ifySTaOhcCTAehqb_ohqWJbPe0",
+                "width": 746
+            }
+        ],
+        "place_id": "ChIJwzA6H0lbBEcRxe10RpMFtj8",
+        "plus_code": {
+            "compound_code": "CW7F+CR Poznań, Poland",
+            "global_code": "9F4RCW7F+CR"
+        },
+        "rating": 3.6,
+        "reference": "ChIJwzA6H0lbBEcRxe10RpMFtj8",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1070,
+        "vicinity": "61-736, Solna 18, Poznań",
+        "time_text": "11 mins",
+        "time_sec": 669
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4015782,
+                "lng": 16.924063
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4029108802915,
+                    "lng": 16.9254018302915
+                },
+                "southwest": {
+                    "lat": 52.4002129197085,
+                    "lng": 16.9227038697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Novotel Poznan Centrum",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 3041,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117306445687337088276\">Novotel Poznan Centrum</a>"
+                ],
+                "photo_reference": "CkQ0AAAAbpfvdR2qZxWIrvaiRiCFfcIoelENSEdky6_oPRxShePNtC_RDp-3J-mSkEqtM5L-mNN1i55MdR4UT5mvXXdEYxIQdt0yX6zRow2z6g3aJ6SIPBoUYc2lPy7e39qNbXWv3k2jv5J46M8",
+                "width": 4562
+            }
+        ],
+        "place_id": "ChIJDSAWWDpbBEcRn6PwVT6guxk",
+        "plus_code": {
+            "compound_code": "CW2F+JJ Poznań, Poland",
+            "global_code": "9F4RCW2F+JJ"
+        },
+        "rating": 4.3,
+        "reference": "ChIJDSAWWDpbBEcRn6PwVT6guxk",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 2762,
+        "vicinity": "plac Andersa 1, Poznań",
+        "time_text": "13 mins",
+        "time_sec": 772
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.408034,
+                "lng": 16.9323671
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4092659802915,
+                    "lng": 16.9334432302915
+                },
+                "southwest": {
+                    "lat": 52.4065680197085,
+                    "lng": 16.9307452697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+        "name": "Brovaria",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 900,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/111223107668605434030\">Brovaria</a>"
+                ],
+                "photo_reference": "CkQ0AAAA1kDBmSbrWVBglathlp5KtB3jchBETzM4xPkMAJ00AgTSUUZlPPhYd9JZ2rdydpz46E62a3Xr3M1tWDpA2HBKiBIQxSRuXNaXKEQ58j_ekMd2FBoU5-e1yMdqp0xsk7swnHHyCRM_wtY",
+                "width": 1280
+            }
+        ],
+        "place_id": "ChIJ1ZUWpDhbBEcR--j66OkzlXw",
+        "plus_code": {
+            "compound_code": "CW5J+6W Poznań, Poland",
+            "global_code": "9F4RCW5J+6W"
+        },
+        "price_level": 3,
+        "rating": 4.4,
+        "reference": "ChIJ1ZUWpDhbBEcR--j66OkzlXw",
+        "scope": "GOOGLE",
+        "types": [
+            "restaurant",
+            "lodging",
+            "food",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1737,
+        "vicinity": "Stary Rynek 73-74, Poznań",
+        "time_text": "8 mins",
+        "time_sec": 488
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.40849859999999,
+                "lng": 16.911609
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.40984598029149,
+                    "lng": 16.9131248802915
+                },
+                "southwest": {
+                    "lat": 52.40714801970849,
+                    "lng": 16.9104269197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel Mercure Poznan Centrum",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 1365,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114849322122502627762\">Hotel Mercure Poznan Centrum</a>"
+                ],
+                "photo_reference": "CkQ0AAAACXeqKwKxKHvveW4JL6tfk74JWL2olTEv0jWhtrrlY8tBL8c8vVLGi7y68kQT09FLUsGeJKVhNEJJawenbWcRgxIQXSE8VUwp_fliYG5NwHP1CRoUgpSKl6-iC0bV6vVmF8bjsoPhDuQ",
+                "width": 2048
+            }
+        ],
+        "place_id": "ChIJ6TmG5DRbBEcRM1rVX4dkMEY",
+        "plus_code": {
+            "compound_code": "CW56+9J Poznań, Poland",
+            "global_code": "9F4RCW56+9J"
+        },
+        "rating": 4.4,
+        "reference": "ChIJ6TmG5DRbBEcRM1rVX4dkMEY",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 2027,
+        "vicinity": "Roosevelta 20, Poznań",
+        "time_text": "15 mins",
+        "time_sec": 874
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4068535,
+                "lng": 16.9211548
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4082637802915,
+                    "lng": 16.9225171802915
+                },
+                "southwest": {
+                    "lat": 52.4055658197085,
+                    "lng": 16.9198192197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel NH Poznan",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 768,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112377220267399901453\">Hotel NH Poznan</a>"
+                ],
+                "photo_reference": "CkQ0AAAAn9daRK2rOQRj-dtzMxB0KQOVS8lYTICRrZisSU3EqkRR6f4EQKyzOWiidDvWGz91GQqQaGvX8STZrMZ0nsTj3hIQSOEpn08ShGLxa94mEEY4ZxoUe-1778Rr0MIPI3EmrDkN557tuhg",
+                "width": 691
+            }
+        ],
+        "place_id": "ChIJpRhM5m-TBUcRhZyA7vQFeak",
+        "plus_code": {
+            "compound_code": "CW4C+PF Poznań, Poland",
+            "global_code": "9F4RCW4C+PF"
+        },
+        "rating": 4.3,
+        "reference": "ChIJpRhM5m-TBUcRhZyA7vQFeak",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 774,
+        "vicinity": "Święty Marcin 67, Poznań",
+        "time_text": "6 mins",
+        "time_sec": 353
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.39754869999999,
+                "lng": 16.9263935
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.3988832302915,
+                    "lng": 16.9278862802915
+                },
+                "southwest": {
+                    "lat": 52.3961852697085,
+                    "lng": 16.9251883197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel Włoski",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 3456,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100937692124368501157\">Hotel Włoski</a>"
+                ],
+                "photo_reference": "CkQ0AAAAcoRmFIT2oewshZtcWEbqATK5oN2rghZMkfrFdqDUBh1oVh_ycbqtybxQD_sXLf7nmPlM0OpGiBhwdZ5UlQwNfhIQww_Qu2r_1cldBiyPT3C9khoUm0mAbNV_67hB3q38e_BJhwYWz_E",
+                "width": 5184
+            }
+        ],
+        "place_id": "ChIJcSacpSRbBEcRz9JV72qTghE",
+        "plus_code": {
+            "compound_code": "9WXG+2H Poznań, Poland",
+            "global_code": "9F4R9WXG+2H"
+        },
+        "rating": 4.7,
+        "reference": "ChIJcSacpSRbBEcRz9JV72qTghE",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1143,
+        "vicinity": "Dolna Wilda 8, Poznań",
+        "time_text": "20 mins",
+        "time_sec": 1181
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4229916,
+                "lng": 16.9234783
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4243871802915,
+                    "lng": 16.9249319302915
+                },
+                "southwest": {
+                    "lat": 52.4216892197085,
+                    "lng": 16.9222339697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel VIVALDI Poznań",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 3280,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/111807239970256723668\">Hotel VIVALDI Poznań</a>"
+                ],
+                "photo_reference": "CkQzAAAACqWNmnLZQyE1yXWuIYjBoIW2r29bsbS5SGwmCQUR398qUOjveCmiRB5dPEWHEum1z0fsCZSdNaBcSzUGqJ0vuRIQaC6QrB_wzxoaCIF8VuJ0rBoUCI7VrMlLOCn5OprTW7SmKSTy41U",
+                "width": 4928
+            }
+        ],
+        "place_id": "ChIJN0orUFJbBEcR8sfbzarbIzo",
+        "plus_code": {
+            "compound_code": "CWFF+59 Poznań, Poland",
+            "global_code": "9F4RCWFF+59"
+        },
+        "rating": 4.4,
+        "reference": "ChIJN0orUFJbBEcR8sfbzarbIzo",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 783,
+        "vicinity": "Winogrady 9, Poznań",
+        "time_text": "25 mins",
+        "time_sec": 1483
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4059724,
+                "lng": 16.930516
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4072258302915,
+                    "lng": 16.9318462302915
+                },
+                "southwest": {
+                    "lat": 52.4045278697085,
+                    "lng": 16.9291482697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Don Prestige Residence",
+        "photos": [
+            {
+                "height": 4128,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114852076975837727224\">Przemo Tygrys</a>"
+                ],
+                "photo_reference": "CkQ0AAAA1YLIIC56Pz29aug7eNu08N9fXAwXYw6n_R7U4mjG0UqIYkyNtqGeNHfT_4Q3NFdrrNkdrY2AqMycRvFKdlXIIBIQ4mZKmNsxL5ggc-aDcpzbnRoUAYiXjXZZBAtpjVxUXwe0N5DtdcI",
+                "width": 3096
+            }
+        ],
+        "place_id": "ChIJE8loIDlbBEcRQRz1W0qggCg",
+        "plus_code": {
+            "compound_code": "CW4J+96 Poznań, Poland",
+            "global_code": "9F4RCW4J+96"
+        },
+        "rating": 4.4,
+        "reference": "ChIJE8loIDlbBEcRQRz1W0qggCg",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 665,
+        "vicinity": "Święty Marcin 2, Poznań",
+        "time_text": "8 mins",
+        "time_sec": 488
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "geometry": {
+            "location": {
+                "lat": 52.4074985,
+                "lng": 16.9285597
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4088218802915,
+                    "lng": 16.9300219302915
+                },
+                "southwest": {
+                    "lat": 52.4061239197085,
+                    "lng": 16.9273239697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hotel Rzymski Sp. z o.o.",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 504,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115620762587602555590\">Hotel Rzymski Sp. z o.o.</a>"
+                ],
+                "photo_reference": "CkQ0AAAAueLJOS_fQd-hLCHtkgqbMI5lS5QRYjSm-v-W0Oy9v6drfUoAjy9hyf15iXpuatm8NFAM90z7cAjZZkBLJSifIBIQ-dt2Fm_OwoAcVv8IlyUlORoUxXe4IIqL1PU7UbRMMPUI63TOY8g",
+                "width": 756
+            }
+        ],
+        "place_id": "ChIJOYxoXThbBEcRngL1jRMG7c4",
+        "plus_code": {
+            "compound_code": "CW4H+XC Poznań, Poland",
+            "global_code": "9F4RCW4H+XC"
+        },
+        "rating": 4.2,
+        "reference": "ChIJOYxoXThbBEcRngL1jRMG7c4",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 965,
+        "vicinity": "Aleje Marcinkowskiego 22, Poznań",
+        "time_text": "6 mins",
+        "time_sec": 337
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4022823,
+                "lng": 16.9413968
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4036719302915,
+                    "lng": 16.9426983302915
+                },
+                "southwest": {
+                    "lat": 52.4009739697085,
+                    "lng": 16.9400003697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "ibis Poznan Stare Miasto",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 3000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/109205511068819978101\">ibis Poznan Stare Miasto</a>"
+                ],
+                "photo_reference": "CkQ0AAAA3H435w30NRHf-N5jXZOzCwgDFvQ1z60T5WSed9_t_VPTQ_znY0M4tbC-INbW7Ffbtdfk8ei2E7YbjDRoENzUTBIQynSfTgamLj7v9e9YfzjWMBoUq_mrl8-7rs1xdNoeWMLJ2ho_pPo",
+                "width": 4500
+            }
+        ],
+        "place_id": "ChIJNQLx0RVbBEcRgUpMhzxkkW0",
+        "plus_code": {
+            "compound_code": "CW2R+WH Poznań, Poland",
+            "global_code": "9F4RCW2R+WH"
+        },
+        "rating": 4.1,
+        "reference": "ChIJNQLx0RVbBEcRgUpMhzxkkW0",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1503,
+        "vicinity": "Kazimierza Wielkiego 23, Poznań",
+        "time_text": "19 mins",
+        "time_sec": 1148
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.4054819,
+                "lng": 16.9368241
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.40687973029149,
+                    "lng": 16.9381708302915
+                },
+                "southwest": {
+                    "lat": 52.4041817697085,
+                    "lng": 16.9354728697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Hostel Explorer",
+        "photos": [
+            {
+                "height": 3366,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114919482695063434721\">Wal Kol</a>"
+                ],
+                "photo_reference": "CkQ0AAAA-SFvPjL41pkZcbsKEBXuFQetboUASxIgFaJIKjSgYeGus3UNrhH5-e-hjZzu_DFBqO3lY_FrWV9g4Bt2JtmlpxIQpRcKiMoS3nYec8lq6hja7xoUxMSXtozgYyaaj43Fid8fSz-j4y4",
+                "width": 5984
+            }
+        ],
+        "place_id": "ChIJqygmrj9bBEcRk6sujNIxyE4",
+        "plus_code": {
+            "compound_code": "CW4P+5P Poznań, Poland",
+            "global_code": "9F4RCW4P+5P"
+        },
+        "rating": 4.3,
+        "reference": "ChIJqygmrj9bBEcRk6sujNIxyE4",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 470,
+        "vicinity": "Wszystkich Świętych 6, Poznań",
+        "time_text": "14 mins",
+        "time_sec": 820
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": 52.40722899999999,
+                "lng": 16.921681
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.40848993029149,
+                    "lng": 16.9230055302915
+                },
+                "southwest": {
+                    "lat": 52.4057919697085,
+                    "lng": 16.92030756970849
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+        "name": "Fusion Hostel",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 2736,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106407204613576266163\">Rafał P</a>"
+                ],
+                "photo_reference": "CkQ0AAAAx7gD_h4DUsAv4Xtc5u8kBUGK91zQ8J0Ur7MDHZXGv7V0YgQc0ufcdapJj8_S6YdegIlpYf7ELsZgqthxf6wz0RIQxMI11fpUoGWlpFp-pCPNMBoUv4LPtpVKYo4OmuP5_3eyZwhxSgY",
+                "width": 3648
+            }
+        ],
+        "place_id": "ChIJc0uGBzdbBEcRgMDG7fs4VhI",
+        "plus_code": {
+            "compound_code": "CW4C+VM Poznań, Poland",
+            "global_code": "9F4RCW4C+VM"
+        },
+        "rating": 3.6,
+        "reference": "ChIJc0uGBzdbBEcRgMDG7fs4VhI",
+        "scope": "GOOGLE",
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 95,
+        "vicinity": "Święty Marcin 66/72, Poznań",
+        "time_text": "5 mins",
+        "time_sec": 321
+    },
+    {
+        "geometry": {
+            "location": {
+                "lat": 52.4306007,
+                "lng": 16.9363008
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 52.4432457,
+                    "lng": 16.9638992
+                },
+                "southwest": {
+                    "lat": 52.4168433,
+                    "lng": 16.9182588
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+        "name": "Winogrady",
+        "photos": [
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104582229640374286547\">Alric Mougel</a>"
+                ],
+                "photo_reference": "CkQ0AAAAlwqv8pcvpaoqMDMc0f5uGcrAJdJn3tvrfB2-h1fWDb12F1ZSyNOzX-D03IRlFPM0n22J3u7vUkfLG-488tJo0RIQx8xzz0E_0-8x8PCZv5Dg6RoUnaCZIFKo2oGiRRyZhssXNAV7QnU",
+                "width": 6000
+            }
+        ],
+        "place_id": "ChIJ0e5cO6hcBEcRt960AGeHTgc",
+        "reference": "ChIJ0e5cO6hcBEcRt960AGeHTgc",
+        "scope": "GOOGLE",
+        "types": [
+            "neighborhood",
+            "political"
+        ],
+        "vicinity": "Stare Miasto",
+        "time_text": "40 mins",
+        "time_sec": 2401
+    }
+]
