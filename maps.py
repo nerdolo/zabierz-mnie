@@ -110,7 +110,16 @@ def check_popularity(private_key: str, dests: tp.Tuple[dict], day: str, hour: in
     :type hour: int
     """
     for i in range(len(dests)):
-        dests[i]['popularity'] = find(private_key, dests[i]['name'], dests[i]['vicinity'])[day][str(hour)]
+        data = find(private_key, dests[i]['name'], dests[i]['vicinity'])
+        if data == -1:
+            dests[i]['popularity'] = -5
+        elif data[day].get(str(hour), None) is None:
+            dests[i]['popularity'] = -5
+        elif data[day][str(hour)] == "999":
+            dests[i]['popularity'] = -5
+        else:
+            dests[i]['popularity'] = data[day][str(hour)]
+
 
 def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
     """Pobiera z dysku/serwera informacje na temat popularności miejsca 
@@ -152,7 +161,7 @@ def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
         json.dump(j, file)
     return data
 
-def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
+def filter_(results: tp.List[dict], walk_time: int, min_rate: int, max_price:int):
     """Filtr
 
     :param results: Wyniki wyszukiwania miejsc
@@ -182,6 +191,12 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
                 continue
         except KeyError: print("Couldn't find rating", i+1)
 
+        try:
+            if results[i]['prive_level'] > max_price:
+                results.pop(i)
+                continue
+        except KeyError: print("Couldn't find price", i+1)
+
         if results[i]['time_sec']/60 > walk_time:
             results.pop(i)
             continue
@@ -201,16 +216,15 @@ def sorting_by(results, param, results_amount, rev = False):
     :type rev: bool
     """
 # sortuj po parametrze, ewentualnie odwróć
-    results.sort(reverse = rev, key = lambda x: x.get('param', 0))
+    results.sort(reverse = rev, key = lambda x: x.get(param, 0))
 #zwróć odpowiednią ilość najlepszych wyników
     del results[results_amount:]
 
 
-def get_best(results: tp.List[dict], walk_time: int, min_rate: int):
-    filter_(results, walk_time, min_rate)
+def get_best(results: tp.List[dict], walk_time: int, min_rate: int, max_price: int):
+    filter_(results, walk_time, min_rate, max_price)
     sorting_by(results, 'time_sec', 10)
     sorting_by(results, 'rating', 3, True)
-
 
 if __name__ == "__main__":
     if is_possible_checktime(get_config()['private_api_key']):
