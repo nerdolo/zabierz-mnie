@@ -188,8 +188,8 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
         i+=1
 
 
-def sorting_(results: tp.List[dict]):
-    results.sort(key= lambda x: x['time_sec'])
+def sorting_by(results: tp.List[dict], parameter):
+    results.sort(key= lambda x: x[parameter])
 
 if __name__ == "__main__":
     if is_possible_checktime(get_config()['private_api_key']):
@@ -200,6 +200,6 @@ if __name__ == "__main__":
 #test
 ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
 filter_(ans,20,3.0)
-sorting_(ans)
+sorting_by(ans,'time_sec')
 for a in ans:
     print(a['name'], int(a['time_sec']/60))
