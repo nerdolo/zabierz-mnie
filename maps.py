@@ -182,7 +182,7 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
             continue
         i+=1
 
-
-if is_possible_checktime(get_config()['private_api_key']):
-    print(find(get_config()['private_api_key'], 'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
-    is_possible_checktime(get_config()['private_api_key'])
+if __name__ == "__main__":
+    if is_possible_checktime(get_config()['private_api_key']):
+        print(find(get_config()['private_api_key'], 'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
+        is_possible_checktime(get_config()['private_api_key'])
