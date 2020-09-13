@@ -3,6 +3,10 @@
     "public_api_key": "pub_db8a806ce40b4b10a6c5079b2a4962a4",
     "private_api_key": "pri_94c9ef0fb05e49c48a5424ba1a758dd0",
     "places": {
+        "test":[
+            "museum",
+        "park"
+        ],
        "2":[
         "aquarium",
         "art_gallery",
