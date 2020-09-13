@@ -14,6 +14,9 @@ def get_config():
         j = None
     return j
 
+def write_result(result):
+    with open('result.json', 'w') as file:
+        json.dump(result, file)
 
 class NothingFoundError(Exception):
     pass
@@ -60,12 +63,57 @@ def is_possible_checktime(key: str, _min = 3) -> bool:
     res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
     return res['credits_forecast']>_min and res['credits_query']>_min
 
-def check_time():
-    pass    
+def check_time(private_key: str, dests: tp.Tuple[dict]) -> None:
+    for i in range(len(dests)):
+        dests[i]['popularity'] = find(private_key, dests[i]['name'], dests[i]['vicinity'])
 
-a = get_near(get_config()['api_key'], get_location(), 2000)
+def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
+    with open('time_cache.json', 'r') as file:
+        j = json.load(file)
+    if f"{name}|||{address}" in j.keys():
+        data = j[f"{name}|||{address}"]
+    else:
+        params = {
+            'api_key_private':private_key,
+            'venue_name':name,
+            'venue_address':address
+        }
+        res = requests.request("POST", 'https://BestTime.app/api/v1/forecast', params).json()
+        try:
+            hours = res['analysis']['hour_analysis']
+        except KeyError:
+            data = -1
+        else:
+            data = dict()
+            for i in hours:
+                data[i['hour']] = i['intensity_nr']
+        j[f"{name}|||{address}"] = data
+        with open('time_cache.json', 'w') as file:
+            json.dump(j, file)
+    return data
 
-get_distance(get_config()['api_key'], get_location(), a)
+def filter_(results, walk_time, min_rate):
+    i=0
+    while i < len(results):
+        try:
+            if results[i]['business_status'] != 'OPERATIONAL':
+                results.pop(i)
+                continue
+        except: print("Couldn't find business status for", i+1)
 
-for i in a:
-    print(i['name'], i['time_text'], int(i['time_sec']/60))
+        try:
+            if results[i]['opening_hours']['open_now'] == False:
+                results.pop(i)
+                continue
+        except: print("Couldn't find opening hours", i+1)
+
+        try:
+            if results[i]['rating'] < min_rate:
+                results.pop(i)
+                continue
+        except: print("Couldn't find rating", i+1)
+
+        if results[i]['time_sec']/60 > walk_time:
+            results.pop(i)
+            continue
+        i+=1
