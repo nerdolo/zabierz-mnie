@@ -197,9 +197,10 @@ if __name__ == "__main__":
         is_possible_checktime(get_config()['private_api_key'])
 
 
-#test
-ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
-filter_(ans,20,3.0)
-sorting_(ans)
-for a in ans:
-    print(a['name'], int(a['time_sec']/60))
+if __name__ == "__main__":
+    #test
+    ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
+    filter_(ans,20,3.0)
+    sorting_(ans)
+    for a in ans:
+        print(a['name'], int(a['time_sec']/60))
