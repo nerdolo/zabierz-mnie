@@ -38,28 +38,10 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list
     res = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
                        dict(key=key, radius=radius, location=", ".join((str(i) for i in location)), **kwargs)).json()
     if not res.get('results', None):
-        raise NothingFoundError
+        return []
     else:
         return res['results']
 
-def near_by_types(key: str, location: tp.Tuple[float], radius: int, types: tp.List[str], **kwargs) -> tp.List[dict]:
-    """Zwraca miejsca wymienionych typu w okolicy
-
-    :param key: API KEY Google Maps
-    :type key: str
-    :param location: Współrzędne geograficzne (latitude, longitude)
-    :type location: tp.Tuple[float]
-    :param radius: Odległość w metrach
-    :type radius: int
-    :param types: Typy miejsc według Google
-    :type types: tp.List[str]
-    :return: Lokalizacje
-    :rtype: tp.List[dict]
-    """
-    all_places = list
-    for i in types:
-        all_places.extend(get_near(key, location, radius, type=i))
-    return all_places
 
 def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwargs) -> None:
     """ Modyfikuje tablicę dest dodając do wartości w niej informacje o dystancie w sekundach i dystansie w formie tekstowej
@@ -85,6 +67,29 @@ def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwa
         for i, dist in enumerate(dists):
             dest[i]['time_text'] = dist['duration']['text']
             dest[i]['time_sec'] = dist['duration']['value']
+
+
+def near_by_types(key: str, location: tp.Tuple[float], radius: int, types: tp.List[str], **kwargs) -> tp.List[dict]:
+    """Zwraca miejsca wymienionych typu w okolicy
+
+    :param key: API KEY Google Maps
+    :type key: str
+    :param location: Współrzędne geograficzne (latitude, longitude)
+    :type location: tp.Tuple[float]
+    :param radius: Odległość w metrach
+    :type radius: int
+    :param types: Typy miejsc według Google
+    :type types: tp.List[str]
+    :return: Lokalizacje
+    :rtype: tp.List[dict]
+    """
+    all_places = list()
+    for i in types:
+        new = get_near(key, location, radius, type=i)
+        check_distance(key, location, new)
+        all_places.extend(new)
+    return all_places
+
 
 def is_possible_checktime(key: str, _min = 3) -> bool:
     '''Sprawdza czy mamy creditsy na robienie testu; wymaga API_private_key'''
@@ -152,7 +157,7 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
 
     :param results: Wyniki wyszukiwania miejsc
     :type results: tp.List[dict]
-    :param walk_time: Dopuszczalny czas marszu w sekundach
+    :param walk_time: Dopuszczalny czas marszu w minutach
     :type walk_time: int
     :param min_rate: Minimalna ocena
     :type min_rate: int
@@ -182,7 +187,19 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
             continue
         i+=1
 
+
+def sorting_(results: tp.List[dict]):
+    results.sort(key= lambda x: x['time_sec'])
+
 if __name__ == "__main__":
     if is_possible_checktime(get_config()['private_api_key']):
         print(find(get_config()['private_api_key'], 'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
         is_possible_checktime(get_config()['private_api_key'])
+
+
+#test
+ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
+filter_(ans,20,3.0)
+sorting_(ans)
+for a in ans:
+    print(a['name'], int(a['time_sec']/60))
