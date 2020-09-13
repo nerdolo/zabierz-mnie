@@ -89,6 +89,7 @@ def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwa
 def is_possible_checktime(key: str, _min = 3) -> bool:
     '''Sprawdza czy mamy creditsy na robienie testu; wymaga API_private_key'''
     res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
+    print(res['credits_forecast'], res['credits_query'])
     return res['credits_forecast']>_min and res['credits_query']>_min
 
 def check_popularity(private_key: str, dests: tp.Tuple[dict], day: str, hour: int) -> None:
@@ -135,11 +136,12 @@ def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
             write_result(days)
         except KeyError:
             data = -1
-        data = dict()
-        for day in days:
-            data[day[0]] = dict()
-            for i in day[1]:
-                data[day[0]][i['hour']] = i['intensity_nr']
+        else:
+            data = dict()
+            for day in days:
+                data[day[0]] = dict()
+                for i in day[1]:
+                    data[day[0]][i['hour']] = i['intensity_nr']
         j[f"{name}|||{address}"] = data
     with open('time_cache.json', 'w') as file:
         json.dump(j, file)
@@ -182,4 +184,5 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
 
 
 if is_possible_checktime(get_config()['private_api_key']):
-    print(find(get_config()['private_api_key'], 'Palmiarnia Poznańska', 'Matejki 18, 60-767 Poznań'))
+    print(find(get_config()['private_api_key'], 'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
+    is_possible_checktime(get_config()['private_api_key'])
