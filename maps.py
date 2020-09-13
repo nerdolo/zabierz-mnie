@@ -2,9 +2,11 @@ import requests
 import json
 import typing as tp
 
+
 def write_config(config):
     with open('config.json', 'w') as file:
         json.dump(config, file)
+
 
 def get_config():
     try:
@@ -14,9 +16,11 @@ def get_config():
         j = None
     return j
 
+
 def write_result(result):
     with open('result.json', 'w') as file:
         json.dump(result, file)
+
 
 class NothingFoundError(Exception):
     pass
@@ -24,6 +28,7 @@ class NothingFoundError(Exception):
 
 def get_location() -> tp.Tuple[float]:
     return 52.409373, 16.924296
+
 
 def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list:
     """ Znajduje najbliższe miejsca
@@ -36,7 +41,7 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list
     """
     # Zwraca zdictowaną odpowiedź
     res = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-                       dict(key=key, radius=radius, language ='pl', location=", ".join((str(i) for i in location)), **kwargs)).json()
+                       dict(key=key, radius=radius, language='pl', location=", ".join((str(i) for i in location)), **kwargs)).json()
     if not res.get('results', None):
         return []
     else:
@@ -57,7 +62,7 @@ def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwa
     destinations = "|".join((",".join(
         (str(i['geometry']['location']['lat']), str(i['geometry']['location']['lng']))) for i in dest))
     res = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json',
-                       dict(key=key, language ='pl', departure_time='now', origins=f"{start[0]},{start[1]}", destinations=destinations, mode='walking', **kwargs)).json()
+                       dict(key=key, language='pl', departure_time='now', origins=f"{start[0]},{start[1]}", destinations=destinations, mode='walking', **kwargs)).json()
     try:
         dists = res['rows'][0]['elements']
     except (IndexError, KeyError):
@@ -91,11 +96,12 @@ def near_by_types(key: str, location: tp.Tuple[float], radius: int, types: tp.Li
     return all_places
 
 
-def is_possible_checktime(key: str, _min = 3) -> bool:
+def is_possible_checktime(key: str, _min=3) -> bool:
     '''Sprawdza czy mamy creditsy na robienie testu; wymaga API_private_key'''
     res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
     print(res['credits_forecast'], res['credits_query'])
-    return res['credits_forecast']>_min and res['credits_query']>_min
+    return res['credits_forecast'] > _min and res['credits_query'] > _min
+
 
 def check_popularity(private_key: str, dests: tp.Tuple[dict], day: str, hour: int) -> None:
     """Modyfikuje tablicę dests dodając informacje o popularności dla określonej godziny i dnia tygodnia
@@ -121,7 +127,7 @@ def check_popularity(private_key: str, dests: tp.Tuple[dict], day: str, hour: in
             dests[i]['popularity'] = data[day][str(hour)]
 
 
-def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
+def find(private_key: str, name: str, address: str) -> tp.Dict[str, int]:
     """Pobiera z dysku/serwera informacje na temat popularności miejsca 
 
     :param private_key: API key
@@ -139,14 +145,16 @@ def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
         data = j[f"{name}|||{address}"]
     else:
         params = {
-            'api_key_private':private_key,
-            'venue_name':name,
-            'venue_address':address
+            'api_key_private': private_key,
+            'venue_name': name,
+            'venue_address': address
         }
-        r = requests.request("POST", 'https://besttime.app/api/v1/forecasts', params=params)
+        r = requests.request(
+            "POST", 'https://besttime.app/api/v1/forecasts', params=params)
         res = r.json()
         try:
-            days = [(i["day_info"]['day_text'], i['hour_analysis']) for i in res['analysis']]
+            days = [(i["day_info"]['day_text'], i['hour_analysis'])
+                    for i in res['analysis']]
             write_result(days)
         except KeyError:
             data = -1
@@ -161,7 +169,8 @@ def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
         json.dump(j, file)
     return data
 
-def filter_(results: tp.List[dict], walk_time: int, min_rate: int, max_price:int):
+
+def filter_(results: tp.List[dict], walk_time: int, min_rate: int, max_price: int):
     """Filtr
 
     :param results: Wyniki wyszukiwania miejsc
@@ -171,39 +180,43 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int, max_price:int
     :param min_rate: Minimalna ocena
     :type min_rate: int
     """
-    i=0
+    i = 0
     while i < len(results):
         try:
             if results[i]['business_status'] != 'OPERATIONAL':
                 results.pop(i)
                 continue
-        except KeyError: print("Couldn't find business status for", i+1)
+        except KeyError:
+            print("Couldn't find business status for", i+1)
 
         try:
             if results[i]['opening_hours']['open_now'] == False:
                 results.pop(i)
                 continue
-        except KeyError: print("Couldn't find opening hours", i+1)
+        except KeyError:
+            print("Couldn't find opening hours", i+1)
 
         try:
             if results[i]['rating'] < min_rate:
                 results.pop(i)
                 continue
-        except KeyError: print("Couldn't find rating", i+1)
+        except KeyError:
+            print("Couldn't find rating", i+1)
 
         try:
             if results[i]['prive_level'] > max_price:
                 results.pop(i)
                 continue
-        except KeyError: print("Couldn't find price", i+1)
+        except KeyError:
+            print("Couldn't find price", i+1)
 
         if results[i]['time_sec']/60 > walk_time:
             results.pop(i)
             continue
-        i+=1
+        i += 1
 
 
-def sorting_by(results, param, results_amount, rev = False):
+def sorting_by(results, param, results_amount, rev=False):
     """Sortowanie po parametrze
 
     :param results: Wyniki wyszukiwania miejsc
@@ -216,8 +229,8 @@ def sorting_by(results, param, results_amount, rev = False):
     :type rev: bool
     """
 # sortuj po parametrze, ewentualnie odwróć
-    results.sort(reverse = rev, key = lambda x: x.get(param, 0))
-#zwróć odpowiednią ilość najlepszych wyników
+    results.sort(reverse=rev, key=lambda x: x.get(param, 0))
+# zwróć odpowiednią ilość najlepszych wyników
     del results[results_amount:]
 
 
@@ -226,15 +239,18 @@ def get_best(results: tp.List[dict], walk_time: int, min_rate: int, max_price: i
     sorting_by(results, 'time_sec', 10)
     sorting_by(results, 'rating', 3, True)
 
+
 if __name__ == "__main__":
     if is_possible_checktime(get_config()['private_api_key']):
-        print(find(get_config()['private_api_key'], 'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
+        print(find(get_config()['private_api_key'],
+                   'Ogród Saski', 'Marszałkowska, 00-102 Warszawa'))
         is_possible_checktime(get_config()['private_api_key'])
 
 
 if __name__ == "__main__":
-    #test
-    ans = near_by_types(get_config()['maps_api_key'], get_location(), 2000, get_config()['places']["2"])
-    get_best(ans,20,3.0)
+    # test
+    ans = near_by_types(get_config()['maps_api_key'], get_location(
+    ), 2000, get_config()['places']["2"])
+    get_best(ans, 20, 3.0)
     for a in ans:
-        print(a['name'],a['time_text'])
+        print(a['name'], a['time_text'])
