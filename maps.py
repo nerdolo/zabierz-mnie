@@ -63,9 +63,9 @@ def is_possible_checktime(key: str, _min = 3) -> bool:
     res = requests.get(f'https://besttime.app/api/v1/keys/{key}').json()
     return res['credits_forecast']>_min and res['credits_query']>_min
 
-def check_time(private_key: str, dests: tp.Tuple[dict]) -> None:
+def check_time(private_key: str, dests: tp.Tuple[dict], day: str, hour: int) -> None:
     for i in range(len(dests)):
-        dests[i]['popularity'] = find(private_key, dests[i]['name'], dests[i]['vicinity'])
+        dests[i]['popularity'] = find(private_key, dests[i]['name'], dests[i]['vicinity'])[day][str(hour)]
 
 def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
     with open('time_cache.json', 'r') as file:
@@ -78,18 +78,21 @@ def find(private_key: str, name: str, address: str) -> tp.Dict[str,int]:
             'venue_name':name,
             'venue_address':address
         }
-        res = requests.request("POST", 'https://BestTime.app/api/v1/forecast', params).json()
+        r = requests.request("POST", 'https://besttime.app/api/v1/forecasts', params=params)
+        res = r.json()
         try:
-            hours = res['analysis']['hour_analysis']
+            days = [(i["day_info"]['day_text'], i['hour_analysis']) for i in res['analysis']]
+            write_result(days)
         except KeyError:
             data = -1
-        else:
-            data = dict()
-            for i in hours:
-                data[i['hour']] = i['intensity_nr']
+        data = dict()
+        for day in days:
+            data[day[0]] = dict()
+            for i in day[1]:
+                data[day[0]][i['hour']] = i['intensity_nr']
         j[f"{name}|||{address}"] = data
-        with open('time_cache.json', 'w') as file:
-            json.dump(j, file)
+    with open('time_cache.json', 'w') as file:
+        json.dump(j, file)
     return data
 
 def filter_(results, walk_time, min_rate):
@@ -117,3 +120,7 @@ def filter_(results, walk_time, min_rate):
             results.pop(i)
             continue
         i+=1
+
+
+if is_possible_checktime(get_config()['private_api_key']):
+    print(find(get_config()['private_api_key'], 'Palmiarnia Poznańska', 'Matejki 18, 60-767 Poznań'))
