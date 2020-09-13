@@ -36,7 +36,7 @@ def get_near(key: str, location: tp.Tuple[float], radius: int, **kwargs) -> list
     """
     # Zwraca zdictowaną odpowiedź
     res = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-                       dict(key=key, radius=radius, location=", ".join((str(i) for i in location)), **kwargs)).json()
+                       dict(key=key, radius=radius, language ='pl', location=", ".join((str(i) for i in location)), **kwargs)).json()
     if not res.get('results', None):
         return []
     else:
@@ -57,7 +57,7 @@ def check_distance(key: str, start: tp.Tuple[float], dest: tp.Tuple[dict], **kwa
     destinations = "|".join((",".join(
         (str(i['geometry']['location']['lat']), str(i['geometry']['location']['lng']))) for i in dest))
     res = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json',
-                       dict(key=key, departure_time='now', origins=f"{start[0]},{start[1]}", destinations=destinations, mode='walking', **kwargs)).json()
+                       dict(key=key, language ='pl', departure_time='now', origins=f"{start[0]},{start[1]}", destinations=destinations, mode='walking', **kwargs)).json()
     try:
         dists = res['rows'][0]['elements']
     except (IndexError, KeyError):
@@ -188,8 +188,25 @@ def filter_(results: tp.List[dict], walk_time: int, min_rate: int):
         i+=1
 
 
-def sorting_by(results: tp.List[dict], param):
-    results.sort(key= lambda x: x[param])
+def sorting_by(results: tp.List[dict], param: string, results_amount=0: int, rev = False: bool):
+"""Sortowanie po parametrze
+
+:param results: Wyniki wyszukiwania miejsc
+:type results: tp.List[dict]
+:param param: Parametr po którym sortujemy wyniki
+:type param: string
+:param results_amount: Ile najlepszych wyników sortowania zwracać, domyślnie wszystkie
+:type results_amount: int
+:param rev: Czy odwrócić kierunek sortowania
+:type rev: bool
+"""
+# domyślnie zwracaj wszystkie
+    if results_amount == 0: results_amount=len(results)
+# sortuj po parametrze, ewentualnie odwróć
+    results.sort(reverse = rev, key = lambda x: x[param])
+#zwróć odpowiednią ilość najlepszych wyników
+    results=results[:results_amount]
+
 
 if __name__ == "__main__":
     if is_possible_checktime(get_config()['private_api_key']):
